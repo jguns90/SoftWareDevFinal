@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src="main.js"></script>
+    <!--BootStrap JS and CSS Imports----->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+
+    <!-----I used the BootStrap ICON Library for the ICONS, Those are the longs SVG links------->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" data-toggle="tooltip" title="Welcome to our project!">DRAW.NET</a>
+        </div>
+        <ul class="nav navbar-nav">
+
+           <!---This drowndown menu is for Pencil options--->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-toggle="tooltip" title="These are your pencil options!"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+            </svg> Tools
+            <span class="caret"></span></a>
+            <ul id="prebuiltstylus" class="dropdown-menu">
+              <!-----Add buttons as needed in this list section keep same format-->
+            </ul>
+          </li>
+
+          <!---This drowndown menu is for Shape options--->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"data-toggle="tooltip" title="These are your shape options!"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+            </svg> Shapes
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <!-----Add buttons as needed in this list section keep same format-->
+              <li><a href="#" onclick="setStylusToShape(0)">Star</a></li>
+              <li><a href="#" onclick="setStylusToShape(1)">House</a></li>
+              <li><a href="#" onclick="setStylusToShape(2)">Tree</a></li>
+            </ul>
+          </li>
+
+
+          <!---This drowndown menu is for color options--->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"data-toggle="tooltip" title="These are your color options!"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-droplet" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"/>
+              <path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"/>
+            </svg> Colors
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <!-----Add buttons as needed in this list section keep same format-->
+              <li><a href="#" id="blue" onclick="setStylusColor('#0000ff')">Blue</a></li>
+              <li><a href="#" id="green" onclick="setStylusColor('#008000')">Green</a></li>
+              <li><a href="#" id="purple" onclick="setStylusColor('#800080')">Purple</a></li>
+              <li><a href="#" id="orange" onclick="setStylusColor('#FFA500')">Orange</a></li>
+              <li><a href="#" id="yellow" onclick="setStylusColor('#FFFF00')">Yellow</a></li>
+              <li><a href="#" id="red" onclick="setStylusColor('#FF0000')">Red</a></li>
+              <li><a href="#" id="black" onclick="setStylusColor('#000000')">Black</a></li>
+              <li><a href="#" id="white" onclick="setStylusColor('#ffffff')">White</a></li>
+              <li><a href="#" id="grey" onclick="setStylusColor('#485353')">Grey</a></li>
+            </ul>
+          </li>
+
+
+
+
+          <!---This drowndown menu is for Save options--->
+
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-toggle="tooltip" title="This is your Save menu!"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-minecart-loaded" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm8-1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM.115 3.18A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 14 12H2a.5.5 0 0 1-.491-.408l-1.5-8a.5.5 0 0 1 .106-.411zm.987.82l1.313 7h11.17l1.313-7H1.102z"/>
+              <path fill-rule="evenodd" d="M6 1a2.498 2.498 0 0 1 4 0c.818 0 1.545.394 2 1 .67 0 1.552.57 2 1h-2c-.314 0-.611-.15-.8-.4-.274-.365-.71-.6-1.2-.6-.314 0-.611-.15-.8-.4a1.497 1.497 0 0 0-2.4 0c-.189.25-.486.4-.8.4-.507 0-.955.251-1.228.638-.09.13-.194.25-.308.362H3c.13-.147.401-.432.562-.545a1.63 1.63 0 0 0 .393-.393A2.498 2.498 0 0 1 6 1z"/>
+            </svg> Save
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <!-----Add buttons as needed in this list section keep same format-->
+              <li><a id="pcsave" href="#" download onclick=setupPCSave()>Save to PC</a></li>
+              <li><a href="#" onclick="openSaveMenu()">Save to Drive</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#" onclick="wipeCanvas()">Clear Canvas</a></li>
+          <li><a>Pen Color<input type="color" id="PenColor"></input></a></li>
+		      <li><a>Pen Size<input type="range" id="stylusWidth" step="1" min="1" max="100" value="2"></a></li>
+
+              <!---This drowndown menu is for google options--->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-toggle="tooltip" title="These are your Drive options!"><span class="glyphicon glyphicon-user"></span> Load
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <!-----Add buttons as needed in this list section keep same format-->
+
+              <li><a href="#"><input type="file" id="fileInput"></input></a></li>
+            </ul>
+          </li>
+          <li><a href="#" id="undo" onclick="undo()">Undo</a></li>
+          <li><a href="#" id="redo" onclick="redo()">Redo</a></li>
+          <li><a href="#" id="signInDrive" onclick="handleAuthClick()">Google Login</a></li>
+          <li><a href="#" id="signOutDrive" hidden="true" onclick="handleSignoutClick()">Sign Out</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="saveWindow">
+      <div id="saveWindowContentPane">
+        <img id="canvasMiniature"/>
+        <ul>
+          <label for="fileName">File Name:</label>
+          <li><input id="fileName" type="text"></input></li>
+          <li id="submit"><a onclick="setupDriveSave('image/png')">Upload As PNG</a></li>
+          <li id="submit"><a onclick="setupDriveSave('image/jpg')">Upload As JPG</a></li>
+          <li id="submit"><a onclick="setupDriveSave('image/jpeg')">Upload As JPEG</a></li>
+          <li id="submit"><a onclick="Window.document.getElementById('saveWindow').style.display = 'none'">Cancel</a></li>
+      </ul>
+
+      </div>
+    </div>
+    <canvas id="drawingCanvas"></canvas>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad(this)"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+    <script type='text/javascript'>
+      WebPageContentSetup(this);
+    </script>
+  </body>
+  </html>
